@@ -6,4 +6,5 @@ Convert subtitles from *.txt text to *.srt after downloading Youtube videos.Just
 #### 0 支持WIN7~WIN11，暂不支持MacOS和Linux系统。
 #### 1、已经有了下载的文本文件，那么只需要指定此文件，程序应该自动转换为相应的SRT文件，保存在相应的路径。如果存在同名文件，自动覆盖。
 #### 2、支持从网页中直接复制相应的文本（包含时间戳和内容），需要支持转换为SRT文件到指定位置。如果存在同名文件，自动覆盖。
+#### 3、下一个版本，将支持中英文txt合并成一份字幕文件。
 #English
