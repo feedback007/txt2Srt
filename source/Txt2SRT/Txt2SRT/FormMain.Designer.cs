@@ -30,18 +30,18 @@
         {
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnTrans = new System.Windows.Forms.Button();
-            this.tbTxtFile1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnOpenTxt1 = new System.Windows.Forms.Button();
             this.btnSrtFile1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbSrtFile1 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnOpenTxt1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbTxtFile1 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnTrans = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -73,57 +73,6 @@
             this.tabPage1.Text = "File";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(481, 202);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Text";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnTrans
-            // 
-            this.btnTrans.Location = new System.Drawing.Point(507, 53);
-            this.btnTrans.Name = "btnTrans";
-            this.btnTrans.Size = new System.Drawing.Size(97, 47);
-            this.btnTrans.TabIndex = 1;
-            this.btnTrans.Text = "Translate";
-            this.btnTrans.UseVisualStyleBackColor = true;
-            this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
-            // 
-            // tbTxtFile1
-            // 
-            this.tbTxtFile1.Location = new System.Drawing.Point(86, 18);
-            this.tbTxtFile1.Name = "tbTxtFile1";
-            this.tbTxtFile1.Size = new System.Drawing.Size(376, 21);
-            this.tbTxtFile1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Text File";
-            // 
-            // btnOpenTxt1
-            // 
-            this.btnOpenTxt1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btnOpenTxt1.Location = new System.Drawing.Point(424, 18);
-            this.btnOpenTxt1.Name = "btnOpenTxt1";
-            this.btnOpenTxt1.Size = new System.Drawing.Size(38, 23);
-            this.btnOpenTxt1.TabIndex = 2;
-            this.btnOpenTxt1.Text = "...";
-            this.btnOpenTxt1.UseVisualStyleBackColor = true;
-            this.btnOpenTxt1.Click += new System.EventHandler(this.btnOpenTxt1_Click);
-            // 
             // btnSrtFile1
             // 
             this.btnSrtFile1.FlatStyle = System.Windows.Forms.FlatStyle.System;
@@ -151,13 +100,49 @@
             this.tbSrtFile1.Size = new System.Drawing.Size(376, 21);
             this.tbSrtFile1.TabIndex = 3;
             // 
-            // richTextBox1
+            // btnOpenTxt1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(469, 163);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.btnOpenTxt1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnOpenTxt1.Location = new System.Drawing.Point(424, 18);
+            this.btnOpenTxt1.Name = "btnOpenTxt1";
+            this.btnOpenTxt1.Size = new System.Drawing.Size(38, 23);
+            this.btnOpenTxt1.TabIndex = 2;
+            this.btnOpenTxt1.Text = "...";
+            this.btnOpenTxt1.UseVisualStyleBackColor = true;
+            this.btnOpenTxt1.Click += new System.EventHandler(this.btnOpenTxt1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 12);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Text File";
+            // 
+            // tbTxtFile1
+            // 
+            this.tbTxtFile1.AllowDrop = true;
+            this.tbTxtFile1.Location = new System.Drawing.Point(86, 18);
+            this.tbTxtFile1.Name = "tbTxtFile1";
+            this.tbTxtFile1.Size = new System.Drawing.Size(376, 21);
+            this.tbTxtFile1.TabIndex = 0;
+            this.tbTxtFile1.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.tbTxtFile1.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.richTextBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(481, 202);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Text";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -185,8 +170,27 @@
             this.textBox3.Size = new System.Drawing.Size(376, 21);
             this.textBox3.TabIndex = 6;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(469, 163);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // btnTrans
+            // 
+            this.btnTrans.Location = new System.Drawing.Point(507, 53);
+            this.btnTrans.Name = "btnTrans";
+            this.btnTrans.Size = new System.Drawing.Size(97, 47);
+            this.btnTrans.TabIndex = 1;
+            this.btnTrans.Text = "Translate";
+            this.btnTrans.UseVisualStyleBackColor = true;
+            this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
+            // 
             // FormMain
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 271);
@@ -199,6 +203,8 @@
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Txt2Srt";
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FormMain_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FormMain_DragEnter);
             this.tcMain.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

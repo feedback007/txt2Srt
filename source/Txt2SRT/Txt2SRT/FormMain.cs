@@ -17,7 +17,20 @@ namespace Txt2SRT
         }
 
         #region prop
-        public string TxtFilePath { get; set; }
+        string _TxtFilePath = "";
+        public string TxtFilePath
+        {
+            get
+            {
+                return _TxtFilePath;
+            }
+            set
+            {
+                _TxtFilePath = value;
+                this.SrtFilePath = System.IO.Path.ChangeExtension(_TxtFilePath, "srt");
+                this.tbSrtFile1.Text = this.SrtFilePath;//symn
+            }
+        }
         public string SrtFilePath { get; set; }
 
         #endregion
@@ -109,6 +122,7 @@ namespace Txt2SRT
             bool bHasTime = false;
             int lastTimeIdx = -1;
             int currentTimeIdx = -1;
+            int iCnt = 0;
             for (int i = 0; i < _ListTxt.Count; i++)
             {
                 string line = _ListTxt[i];
@@ -121,6 +135,8 @@ namespace Txt2SRT
                         lastTimeIdx = i;
                     if (currentTimeIdx != -1)
                     {
+                        iCnt++;
+                        _ListSrt.Add(iCnt.ToString());//the srt index
                         //do something about time 
                         string strLastTime = _ListTxt[currentTimeIdx];
                         string strCurrentTime = _ListTxt[i];
@@ -130,6 +146,8 @@ namespace Txt2SRT
                         string[] aryTmp = new string[i - currentTimeIdx - 1];
                         _ListTxt.CopyTo(currentTimeIdx + 1, aryTmp, 0, aryTmp.Length);
                         _ListSrt.AddRange(aryTmp);
+
+                        _ListSrt.Add(string.Empty);
                         //for (int j = lastTimeIdx; i < currentTimeIdx; j++)
                         //{
                         //}
@@ -152,6 +170,36 @@ namespace Txt2SRT
         {
             //check it?NO
             System.IO.File.WriteAllLines(this.SrtFilePath, _ListSrt.ToArray(), System.Text.Encoding.UTF8);
+        }
+
+        private void FormMain_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+                if (path.EndsWith("txt", StringComparison.OrdinalIgnoreCase))
+                    e.Effect = DragDropEffects.All;
+            }
+
+            else
+                e.Effect = DragDropEffects.None;
+
+        }
+
+        private void FormMain_DragDrop(object sender, DragEventArgs e)
+        {
+            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            if (path.EndsWith("txt", StringComparison.OrdinalIgnoreCase))
+            {
+                if (tcMain.SelectedIndex == 0)
+                {
+                    this.tbTxtFile1.Text = path;
+                    this.TxtFilePath = path;
+                }
+
+            }
+
+
         }
     }
 }
