@@ -14,6 +14,7 @@ namespace Txt2SRT
             TxtFilePath = @"D:\Documents\GitHub\txt2Srt\bin\text.txt";
             SrtFilePath = @"D:\Documents\GitHub\txt2Srt\bin\text.srt";
 #endif
+            this.richTextBox1.Text = string.Empty;
         }
 
         #region prop
@@ -86,11 +87,43 @@ namespace Txt2SRT
             }
             else
             {
+                this.SrtFilePath = this.tbSrtFile2.Text;
 
+                if (string.IsNullOrEmpty(this.richTextBox1.Text))
+                {
+                    MessageBox.Show("The text is NOT exist!Please Check it!");
+                    return;
+                }
+                if (string.IsNullOrEmpty(this.SrtFilePath))
+                {
+                    MessageBox.Show("The SRT File Path is NOT exist!Please Check it!");
+                    return;
+                }
+
+                ReadRichtxt2Mem();
+                bResult = DoTranlate();
             }
 
             MessageBox.Show(bResult ? "Succeed!" : "Faild!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        /// <summary>
+        /// 从界面读取内容
+        /// </summary>
+        private void ReadRichtxt2Mem()
+        {
+            
+            try
+            {
+                _ListTxt.Clear();
+                _ListTxt.AddRange(this.richTextBox1.Lines);
+            }
+            finally
+            {
+                 
+            }
+        }
+
         List<string> _ListTxt = new List<string>();//txt cache
         List<string> _ListSrt = new List<string>();//srt cache
 
@@ -200,6 +233,21 @@ namespace Txt2SRT
             }
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog dlg = new SaveFileDialog())
+            {
+                dlg.Filter = "*.srt|*.srt";
+                dlg.DefaultExt = "srt";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    this.tbSrtFile2.Text = dlg.FileName;
+                    this.SrtFilePath = dlg.FileName;//save to prop
+                }
+
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnSrtFile1 = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tbSrtFile2 = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTrans = new System.Windows.Forms.Button();
             this.tcMain.SuspendLayout();
@@ -134,7 +135,7 @@
             // 
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.label3);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.tbSrtFile2);
             this.tabPage2.Controls.Add(this.richTextBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -153,6 +154,7 @@
             this.button4.TabIndex = 8;
             this.button4.Text = "...";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
@@ -163,12 +165,12 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "SRT  File";
             // 
-            // textBox3
+            // tbSrtFile2
             // 
-            this.textBox3.Location = new System.Drawing.Point(86, 175);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(376, 21);
-            this.textBox3.TabIndex = 6;
+            this.tbSrtFile2.Location = new System.Drawing.Point(86, 175);
+            this.tbSrtFile2.Name = "tbSrtFile2";
+            this.tbSrtFile2.Size = new System.Drawing.Size(376, 21);
+            this.tbSrtFile2.TabIndex = 6;
             // 
             // richTextBox1
             // 
@@ -176,7 +178,7 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(469, 163);
             this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // btnTrans
             // 
@@ -228,7 +230,7 @@
         private System.Windows.Forms.TextBox tbSrtFile1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbSrtFile2;
         private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
