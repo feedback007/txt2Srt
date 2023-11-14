@@ -1,5 +1,6 @@
 # txt2Srt
-Convert subtitles from *.txt text to *.srt after downloading Youtube videos.Just for learning English.
+Convert subtitles from *.txt text to *.srt after downloading the  Youtube videos. Just for learning English.
+#转换的还不错，可以用。当mp4和srt文件同名时，potPlay会自动加载字幕。  2023.11.14
 # 中文
 ## 基本思路：为了学习英语视频，把YouTube视频下载到本地，同时把自动翻译的英文文本也复制到本地。在播放的时候，需要把txt文本转换为SRT字幕文件。发现SRT文件的格式非常简单，而下载的txt文本中自带时间，只需要简单的转换就可以实现了。
 ### 针对以下几种情况，做了相应的开发工作。
